@@ -1,4 +1,4 @@
-from pyleri import Grammar, Sequence, Regex, Repeat, Keyword, Token, Choice, Optional
+from pyleri import Grammar, Sequence, Regex, Repeat, Keyword, Choice, Optional
 from parser import _tokens as t, _choices as c, _repeats as rep, _regexes as reg, _sequences as s
 
 
