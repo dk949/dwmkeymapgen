@@ -16,7 +16,7 @@ def main():
     mouse = parser.parse(buttonstruct, parser.grammar.MouseGrammar())
     key = parser.parse(keystruct, parser.grammar.KeyGrammar())
 
-    print(json.dumps(treeParser.view_parse_tree(mouse), indent=2))
+    # print(json.dumps(treeParser.view_parse_tree(mouse), indent=2))
     print(json.dumps(treeParser.view_parse_tree(key), indent=2))
 
     # key = fileHandler.findStructSignature("static Key keys[]", contents)
