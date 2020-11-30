@@ -10,10 +10,10 @@ def node_props(node, children):
     global binding
 
     if hasattr(node.element, 'name'):
-        if node.element.name == "rep_click_location"\
-                or node.element.name == "rep_modkey"\
-                or node.element.name == "c_buttons"\
-                or node.element.name == "rep_function"\
+        if node.element.name == "rep_click_location" \
+                or node.element.name == "rep_modkey" \
+                or node.element.name == "c_buttons" \
+                or node.element.name == "rep_function" \
                 or node.element.name == "reg_keysym":
 
             binding.append(node.string)
@@ -25,8 +25,6 @@ def node_props(node, children):
             binding.append(node.string)
             bindings.append(binding.copy())
             binding.clear()
-
-
 
     return {
         # 'start': node.start,

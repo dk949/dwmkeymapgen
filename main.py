@@ -1,7 +1,6 @@
 # dwm keymap generator
 # 2020-11-15
 # dk949
-import json
 
 import fileHandler
 import parser
@@ -28,10 +27,9 @@ def main():
         print(i)
 
     # print nicely formatted tree
+    # import json
     # print(json.dumps(treeParser.view_parse_tree(mouse), indent=2))
     # print(json.dumps(treeParser.view_parse_tree(key), indent=2))
-
-    # key = fileHandler.findStructSignature("static Key keys[]", contents)
 
 
 if __name__ == '__main__':
