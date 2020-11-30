@@ -4,7 +4,6 @@
 
 import fileHandler
 import parser
-from parser import treeParser
 
 
 def main():
@@ -15,21 +14,14 @@ def main():
     mouse = parser.parse(buttonstruct, parser.grammar.MouseGrammar())
     key = parser.parse(keystruct, parser.grammar.KeyGrammar())
 
-    # IMPORTANT: actually run the parser
-    treeParser.view_parse_tree(key)
-    for i in treeParser.bindings:
+    for i in mouse:
         print(i)
-    treeParser.view_parse_tree(mouse)
+
     print("")
 
     # Print results from the parser
-    for i in treeParser.bindings:
+    for i in key:
         print(i)
-
-    # print nicely formatted tree
-    # import json
-    # print(json.dumps(treeParser.view_parse_tree(mouse), indent=2))
-    # print(json.dumps(treeParser.view_parse_tree(key), indent=2))
 
 
 if __name__ == '__main__':
