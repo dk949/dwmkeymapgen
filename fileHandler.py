@@ -58,3 +58,4 @@ def _removeWhiteSpace(contents: str):
 
 def findStructSignature(signature: str, contents: str) -> str:
     return _extractBindings(_removeWhiteSpace(signature), _removeWhiteSpace(_removeComments(contents)))
+
