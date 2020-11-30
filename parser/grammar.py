@@ -10,7 +10,7 @@ class MouseGrammar(Grammar):
     rep_function = Repeat(reg.Letter, 1, None)
     c_buttons = Choice(*[Keyword(f"Button{i}") for i in range(4)])
 
-    s_argument = Repeat(Choice(t.Dot, k_null, c.Math, s.Array, rep_function, t.Equals, reg.Number), 0, None)
+    s_argument = Repeat(Choice(t.Dot, k_null, c.Math, s.Array, Repeat(reg.Letter, 1, None), t.Equals, reg.Number), 0, None)
     s_mouseBinding = Sequence(t.Lbrace, rep_click_location, t.Comma,
                               rep_modkey, t.Comma, c_buttons,
                               t.Comma, rep_function, t.Comma, t.Lbrace,
@@ -27,9 +27,8 @@ class KeyGrammar(Grammar):
     rep_modkey = Repeat(reg.LetterNumberOrPipe, 1, None)
     rep_function = Repeat(reg.Letter, 1, None)
 
-    s_argument = Repeat(Choice(t.Dot, k_null, c.Math, s.Array, rep_function, t.Equals, reg.Number), 0, None)
-    s_modKeyCombo = Repeat(Sequence(rep_modkey, Optional(t.Or)), 0, None)
-    s_keyBinding = Sequence(t.Lbrace, s_modKeyCombo, t.Comma, reg_keysym,
+    s_argument = Repeat(Choice(t.Dot, k_null, c.Math, s.Array, Repeat(reg.Letter, 1, None), t.Equals, reg.Number), 0, None)
+    s_keyBinding = Sequence(t.Lbrace, rep_modkey, t.Comma, reg_keysym,
                             t.Comma, rep_function, t.Comma, t.Lbrace,
                             s_argument, t.Rbrace, t.Rbrace)
     s_tagKeys = Sequence(rep.TagkeysFunction, t.Lbracket, reg_keysym, t.Comma, reg.Number, t.Rbracket)
