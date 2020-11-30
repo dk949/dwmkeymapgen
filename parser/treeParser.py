@@ -21,6 +21,12 @@ def node_props(node, children):
             binding[-1] = binding[-1] + f"({node.string.lstrip('.') if node.string != '0' else 'void'})"
             bindings.append(binding.copy())
             binding.clear()
+        elif node.element.name == "s_tagKeys":
+            binding.append(node.string)
+            bindings.append(binding.copy())
+            binding.clear()
+
+
 
     return {
         # 'start': node.start,
@@ -38,6 +44,8 @@ def get_children(children):
 
 # View the parse tree:
 def view_parse_tree(res: result):
+    global bindings
+    bindings.clear()
     start = res.tree.children[0] \
         if res.tree.children else res.tree
     return node_props(start, get_children(start.children))
