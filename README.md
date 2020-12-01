@@ -7,7 +7,7 @@
 * Prints the list of bindings to the screen (at least for now)
 
 ## Requirements
-* Python 3
+* Python version >= 3.6
 * [pyleri](https://github.com/transceptor-technology/pyleri) library
 
 ## Usage
