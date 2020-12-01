@@ -16,16 +16,17 @@ def extract_mouse(binding_list):
 
 
 def extract_key(binding_list):
-    print("modifier                     key        function        argument")
     for binding in binding_list:
-        for i, element in enumerate(binding):
-            if i < len(binding) - 1:
-                if i == 0:
-                    for letter in element:
-                        print(letter if letter != '|' else ' + ', end="")
-                    print(" +", end="")
-                elif element in _Xkeysym.xkeysym:
-                    print(_Xkeysym.xkeysym[element] + " + ->", end="")
-                print(end=" ")
-            else:
+        for position, element in enumerate(binding):
+            if position == len(binding) - 1:
                 print(element)
+                continue
+            if position == 0:
+                for letter in element:
+                    print(letter if letter != '|' else ' + ', end="")
+                print(" + ", end="")
+                continue
+            if element in _Xkeysym.xkeysym:
+                print(_Xkeysym.xkeysym[element] + " + -> ", end="")
+                continue
+            print(end=" ")
