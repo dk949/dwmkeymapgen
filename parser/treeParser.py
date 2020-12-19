@@ -35,7 +35,8 @@ class TreeParser:
             'name': node.element.name if hasattr(node.element, 'name') else None,
             'element': node.element.__class__.__name__,
             'string': node.string,
-            'children': children}
+            'children': children
+            }
 
     # Recursive method to get the children of a node object:
     def _get_children(self, children):
